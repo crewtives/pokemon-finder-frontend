@@ -1,26 +1,25 @@
-import { FETCH_LANDING, FETCH_LANDING_SUCCESS, FETCH_LANDING_FAILURE } from '../../constants/landing'
+import { POKEMON_STARTUP, POKEMON_STARTUP_SUCCESS, POKEMON_STARTUP_FAILURE } from '../../constants/pokemonStartup'
 
 const initialState = {
-    dataLanding: [],
+    pokemons: [],
     isFeching: false,
     error: false
 }
 
-function landingReducer(state = initialState, action) {
+function pokemonStartupReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_LANDING:
+        case POKEMON_STARTUP:
             return {
                 ...state,
-                user: '',
                 isFeching: true
             }
-        case FETCH_LANDING_SUCCESS:
+        case POKEMON_STARTUP_SUCCESS:
             return {
                 ...state,
-                dataLanding: action.dataLanding,
-                isFeching: false 
+                pokemons: action.pokemons,
+                isFeching: false
             }
-        case FETCH_LANDING_FAILURE:
+        case POKEMON_STARTUP_FAILURE:
             return {
                 ...state,
                 isFeching: false,
@@ -31,4 +30,4 @@ function landingReducer(state = initialState, action) {
     }
 }
 
-export default landingReducer
+export default pokemonStartupReducer

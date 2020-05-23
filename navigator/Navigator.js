@@ -11,6 +11,7 @@ import {
 
 import Login from '../src/components/Web/Login/Login.js';
 import Onboarding from '../src/components/Web/Onboarding/Onboarding.js';
+import pokemonStartupLaboratory from '../src/components/Web/pokemonStartupLaboratory/pokemonStartupLaboratory.js';
 
 const Stack = createStackNavigator();
 
@@ -35,15 +36,23 @@ export default class Navigator extends Component {
         });
 
         let checkLogin = await get('pokemonFinderToken')
-        if (checkLogin.length > 0) {
+
+        if (checkLogin === 'undefined') {
             this.setState({
-                route: 'Login',
                 fontsLoaded: true
             })
         } else {
-            this.setState({
-                fontsLoaded: true
-            })
+            if (checkLogin.length > 0) {
+                this.setState({
+                    route: 'pokemonStartupLaboratory',
+                    fontsLoaded: true
+                })
+            } else {
+                this.setState({
+                    fontsLoaded: true
+                })
+            }
+            
         }
 
     }
@@ -56,6 +65,7 @@ export default class Navigator extends Component {
                         <Stack.Navigator headerMode="none" initialRouteName={this.state.route}>
                             <Stack.Screen options={{ title: 'Onboarding' }} name="Onboarding" component={Onboarding} />
                             <Stack.Screen options={{ title: 'Login' }} name="Login" component={Login} />
+                            <Stack.Screen options={{ title: 'pokemonStartupLaboratory' }} name="pokemonStartupLaboratory" component={pokemonStartupLaboratory} />
                         </Stack.Navigator>
                     </NavigationContainer>
                 )

@@ -2,8 +2,8 @@ import { LOGIN_USER, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../../consta
 
 const initialState = {
     user: '',
-    name: 'Leonidas1',
-    email: 'leonidas@gmail.com1',
+    name: '',
+    email: '',
     isFeching: false,
     error: false
 }

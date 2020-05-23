@@ -1,5 +1,5 @@
 import { LOGIN_USER, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from '../constants/user'
-import { fetchLoginUser } from '../api/user'
+import { fetchLoginUser, fetchGetUser } from '../api/user'
 import { save } from '../storage/services'
 
 export const getData = () => {
@@ -21,6 +21,19 @@ export const fetchData = (name, email) => {
         fetchLoginUser(name, email)
             .then(([response, json]) => {
                 save('pokemonFinderToken', json.token)
+                dispatch(getDataSuccess(json))
+            })
+            .catch((error) => console.log(error))
+    }
+
+}
+
+export const fetchGetUserData = () => {
+
+    return (dispatch) => {
+
+        fetchGetUser()
+            .then(([response, json]) => {
                 dispatch(getDataSuccess(json))
             })
             .catch((error) => console.log(error))
