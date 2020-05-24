@@ -35,6 +35,9 @@ class pokemonStartupLaboratory extends Component {
 
         this.props.fetchGetUserPokemonData()
 
+        this.props.getPokemonStartup()
+
+        this.props.fetchPokemonStartupData()
     }
 
     componentDidUpdate() {
@@ -42,10 +45,6 @@ class pokemonStartupLaboratory extends Component {
         if (this.props.userPokemons.length > 0) {
             const { navigate } = this.props.navigation
             navigate('Home')
-        } else {
-            this.props.getPokemonStartup()
-
-            this.props.fetchPokemonStartupData()
         }
 
     }
