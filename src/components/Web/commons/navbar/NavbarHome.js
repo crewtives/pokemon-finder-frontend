@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Constants from 'expo-constants';
 import * as Animatable from 'react-native-animatable';
+
+import { fetchGetUserData } from '../../../../actions/userActions'
 import { connect } from 'react-redux';
 
 class NavbarHome extends Component {
@@ -11,6 +13,8 @@ class NavbarHome extends Component {
         super(props);
     }
     componentDidMount() {
+
+        this.props.fetchGetUserData()
         console.log(this.props)
     }
 
@@ -24,29 +28,46 @@ class NavbarHome extends Component {
             }}>
                 <View style={{
                     flex: 1,
-                    flexDirection: 'row'
+                    flexDirection: 'row',
                 }}>
                     <Animatable.Text ref={this.handleMainLogo} delay={750} animation="fadeInUp" style={{
                         fontFamily: 'Raleway-Bold',
                         fontSize: hp(3.5),
-                        color: '#FECA1B'
+                        color: '#FECA1B',
                     }}>
                         pokemon
                     </Animatable.Text>
                     <Animatable.Text ref={this.handleSecLogo} delay={750} animation="fadeInDown" style={{
                         fontFamily: 'Raleway-Regular',
                         fontSize: hp(3.5),
-                        color: '#FECA1B'
+                        color: '#FECA1B',
                     }}>
                         finder
-                        </Animatable.Text>
+                    </Animatable.Text>
+
                 </View>
+                {/* <View style={{ flex: 0.5 }}>
+                    <Animatable.View delay={1500} animation="fadeInRight" style={{
+                        backgroundColor: "#000022",
+                        justifyContent: 'center',
+                        borderRadius: 10,
+                        marginLeft: wp(1)
+                    }}>
+                        <Text style={{
+                            fontFamily: 'Raleway-Regular',
+                            fontSize: hp(2),
+                            color: '#FECA1B',
+                            textAlignVertical: 'center',
+                            padding: 5
+                        }}>Place: {this.props.place}</Text>
+                    </Animatable.View>
+                </View> */}
                 <Animatable.View delay={750} animation="fadeIn" style={{ justifyContent: 'center', flex: 1 }}>
                     <Text style={{
                         color: 'white',
                         fontFamily: 'Raleway-Bold',
                         fontSize: hp(2.5),
-                        alignSelf:"flex-end"
+                        alignSelf: "flex-end"
                     }}>{this.props.user.name}</Text>
                 </Animatable.View>
             </View>
@@ -56,6 +77,7 @@ class NavbarHome extends Component {
 
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         user: state.loginUser.user,
         isfetchingUser: state.loginUser.isFeching,
@@ -63,7 +85,11 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        fetchGetUserData: () => {
+            return dispatch(fetchGetUserData())
+        },
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavbarHome);
