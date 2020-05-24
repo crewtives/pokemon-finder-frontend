@@ -12,6 +12,7 @@ import {
 import Login from '../src/components/Web/Login/Login.js';
 import Onboarding from '../src/components/Web/Onboarding/Onboarding.js';
 import pokemonStartupLaboratory from '../src/components/Web/pokemonStartupLaboratory/pokemonStartupLaboratory.js';
+import Home from '../src/components/Web/Home/Home.js';
 
 const Stack = createStackNavigator();
 
@@ -66,6 +67,7 @@ export default class Navigator extends Component {
                             <Stack.Screen options={{ title: 'Onboarding' }} name="Onboarding" component={Onboarding} />
                             <Stack.Screen options={{ title: 'Login' }} name="Login" component={Login} />
                             <Stack.Screen options={{ title: 'pokemonStartupLaboratory' }} name="pokemonStartupLaboratory" component={pokemonStartupLaboratory} />
+                            <Stack.Screen options={{ title: 'Home' }} name="Home" component={Home} />
                         </Stack.Navigator>
                     </NavigationContainer>
                 )

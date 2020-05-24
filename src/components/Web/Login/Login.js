@@ -36,7 +36,15 @@ class Login extends Component {
 
     }
 
+    componentDidUpdate(){
+        if (this.props.user) {
+            const { navigate } = this.props.navigation;
+            navigate('pokemonStartupLaboratory')
+        }
+    }
+
     loginRequest = async () => {
+
         this.props.getData()
 
         this.props.fetchData(this.state.name, this.state.email)
@@ -126,6 +134,7 @@ class Login extends Component {
 
 
 const mapStateToProps = (state) => {
+
     return {
         user: state.loginUser.user,
         name: state.loginUser.name,
