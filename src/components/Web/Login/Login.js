@@ -39,7 +39,7 @@ class Login extends Component {
     componentDidUpdate(){
         if (this.props.user) {
             const { navigate } = this.props.navigation;
-            navigate('pokemonStartupLaboratory')
+            navigate('Home')
         }
     }
 

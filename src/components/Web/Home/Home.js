@@ -14,6 +14,7 @@ import MyPokemons from '../commons/MyPokemons/MyPokemons'
 
 import { connect } from 'react-redux';
 import { ScrollView } from 'react-native-gesture-handler';
+import { getData } from '../../../actions/userActions'
 
 class Home extends Component {
 
@@ -23,13 +24,24 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            checkLab: false
+        }
     }
 
     componentDidMount() {
-
+        this.props.getData()
     }
 
-    componentDidUpdate() {
+    toLaboratory() {
+        this.props.navigation.reset({
+            index: 0,
+            routes: [
+                {
+                    name: 'pokemonStartupLaboratory',
+                },
+            ],
+        })
 
     }
 
@@ -48,8 +60,8 @@ class Home extends Component {
 
                     }}>
                         <Animatable.View animation="bounceInLeft" duration={500} delay={2000} style={{
-                            width:wp(40),
-                            height:hp(80),
+                            width: wp(40),
+                            height: hp(80),
                             backgroundColor: '#000022',
                             borderRadius: 5,
                             marginHorizontal: 25
@@ -72,10 +84,17 @@ class Home extends Component {
                                     }}>
                                         Map adventure coming soon...
                                     </Text>
+                                    {this.props.userPokemons.length === 0 ?
+                                        <Animatable.Text animation='shake' duration={300} onPress={() => this.toLaboratory()} style={{
+                                            color: 'rgb(232, 163, 235)',
+                                            fontFamily: 'Raleway-Regular',
+                                            fontSize: hp(2.5),
+                                            textAlign: 'center',
+                                            textAlignVertical: 'center'
+                                        }}> visit the laboratory
+                                        </Animatable.Text> : null}
                                 </View>
-                                <View styles={{ flex: 1 }}>
-
-                                </View>
+                               
                             </View>
                         </Animatable.View>
                         <View style={{
@@ -92,8 +111,8 @@ class Home extends Component {
                                     height: hp(65)
                                 }}
                                 >
-                                    
-                                        <MyPokemons />
+
+                                    <MyPokemons />
 
 
                                 </Animatable.View>
@@ -161,11 +180,17 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        user: state.loginUser.user,
+        userPokemons: state.pokemonData.userPokemons,
+        fetching: state.loginUser.isFeching
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        getData: () => {
+            return dispatch(getData())
+        },
     }
 }
 

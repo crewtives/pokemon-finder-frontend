@@ -45,6 +45,7 @@ class MyPokemons extends Component {
             }}>
                 <View style={{
                     flex: 0.50,
+                    flexDirection:'row'
                 }}>
                     <Text style={{
                         color: 'white',
@@ -55,6 +56,7 @@ class MyPokemons extends Component {
                     }}>
                         your buddies
                     </Text>
+
                 </View>
                 <View style={{
                     flex: 1,
@@ -88,7 +90,7 @@ class MyPokemons extends Component {
                         <FlatList
                             data={this.props.userPokemons}
                             renderItem={({ item }) => (
-
+                                
                                 <TouchableOpacity style={{
                                     borderBottomColor: "rgb(232, 163, 235)",
                                     borderBottomWidth: 1,
@@ -100,7 +102,8 @@ class MyPokemons extends Component {
                                     <View style={{
                                         flex: .25,
                                     }}>
-                                        <Image source={{ uri: item.pokemonApi.sprites.front_default }} style={{ width: 96, height: 96, alignSelf: 'center' }} />
+                                        {item.pokemonApi ? <Image source={{ uri: item.pokemonApi.sprites.front_default }} style={{ width: 96, height: 96, alignSelf: 'center' }} /> : null}
+                                        
 
                                     </View>
                                     <View style={{
@@ -112,7 +115,7 @@ class MyPokemons extends Component {
                                             color: 'rgb(232, 163, 235)',
                                             height: hp(3.75),
                                             fontSize: hp(3.75),
-                                        }}>{item.pokemonApi.name}</Text>
+                                        }}>{item.pokemonApi? item.pokemonApi.name :null}</Text>
                                     </View>
                                 </TouchableOpacity>
                             )}

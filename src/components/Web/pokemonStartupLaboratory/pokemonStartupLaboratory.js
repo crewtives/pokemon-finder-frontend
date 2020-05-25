@@ -40,15 +40,6 @@ class pokemonStartupLaboratory extends Component {
         this.props.fetchPokemonStartupData()
     }
 
-    componentDidUpdate() {
-
-        if (this.props.userPokemons.length > 0) {
-            const { navigate } = this.props.navigation
-            navigate('Home')
-        }
-
-    }
-
     randomPresentation() {
         let presentation = ['ohh... ', 'yep... ', 'good choice... ', 'its so cute.. ',]
 
@@ -76,6 +67,9 @@ class pokemonStartupLaboratory extends Component {
 
         this.props.fetchSaveUserPokemonData(pokemon_id, user_id)
 
+        const { navigate } = this.props.navigation
+
+        navigate('Home')
     }
 
     render() {
@@ -253,6 +247,7 @@ class pokemonStartupLaboratory extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         user: state.loginUser.user,
         userPokemons: state.pokemonData.userPokemons,
