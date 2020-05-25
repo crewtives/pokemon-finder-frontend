@@ -15,6 +15,7 @@ import {
     fetchFilterUserPokemonData
 } from '../../../../actions/pokemonDataActions'
 import { pad } from '../../../../utils/url'
+import { getData } from '../../../../actions/userActions'
 
 import { connect } from 'react-redux';
 
@@ -82,10 +83,11 @@ class MyPokemons extends Component {
                                 padding: hp(3),
                             }}
                         />
-                        <FontAwesome onPress={() => this.props.fetchFilterUserPokemonData(this.state.searchTerm)}
-                            iconStyle={{
-                                textAlignVertical: 'center'
-                            }}
+                        <FontAwesome onPress={() => {
+                            this.props.getData()
+
+                            this.props.fetchFilterUserPokemonData(this.state.searchTerm)
+                        }}
                             style={{
                                 marginHorizontal: wp(2),
                                 flex:0.10,
@@ -156,7 +158,10 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchFilterUserPokemonData: (search) => {
             return dispatch(fetchFilterUserPokemonData(search))
-        }
+        },
+        getData: () => {
+            return dispatch(getData())
+        },
     }
 }
 
