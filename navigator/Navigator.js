@@ -45,7 +45,7 @@ export default class Navigator extends Component {
         } else {
             if (checkLogin.length > 0) {
                 this.setState({
-                    route: 'pokemonStartupLaboratory',
+                    route: 'Home',
                     fontsLoaded: true
                 })
             } else {

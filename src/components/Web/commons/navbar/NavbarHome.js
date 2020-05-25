@@ -15,7 +15,6 @@ class NavbarHome extends Component {
     componentDidMount() {
 
         this.props.fetchGetUserData()
-        console.log(this.props)
     }
 
     render() {
@@ -77,7 +76,6 @@ class NavbarHome extends Component {
 
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         user: state.loginUser.user,
         isfetchingUser: state.loginUser.isFeching,

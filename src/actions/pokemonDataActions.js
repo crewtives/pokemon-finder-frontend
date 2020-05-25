@@ -55,6 +55,24 @@ export const fetchSaveUserPokemonData = (pokemon_id, user_id) => {
 
 }
 
+export const fetchFilterUserPokemonData = (search) => {
+
+    return (dispatch) => {
+        let searchData = [];
+
+        fetchGetUserPokemon()
+            .then(([response, json]) => {
+                json.filter(tempData => {
+                    if (tempData.pokemonApi.name.indexOf(search) >= 0) {
+                        searchData.push(tempData)
+                    }
+                    dispatch(getUserPokemonDataSuccess(searchData))
+                })
+
+            }).catch((error) => console.log(error))
+    }
+}
+
 export const fetchGetUserPokemonData = () => {
 
     return (dispatch) => {
