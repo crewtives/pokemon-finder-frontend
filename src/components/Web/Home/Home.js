@@ -79,7 +79,8 @@ class Home extends Component {
                                 }}>
                                     <Text style={{
                                         color: 'white',
-                                        fontFamily: 'Raleway-Bold',
+                                        fontFamily: 'Raleway-Regular',
+                                        fontSize: hp(2.5),
                                         textAlign: 'center',
                                         padding: 5
                                     }}>
@@ -122,7 +123,7 @@ class Home extends Component {
                                                 textAlign: 'center',
                                                 textAlignVertical: 'center',
                                                 paddingTop: 10
-                                            }}> nothing new around here
+                                            }}> nothing new around here...
                                                 </Text>}
                                     </Animatable.View>
                                 </View>
@@ -171,7 +172,7 @@ class Home extends Component {
                                                 textAlign: 'center',
                                                 padding: 5,
                                             }}>
-                                                Inventory coming soon...
+                                                inventory coming soon...
                                     </Text>
                                         </View>
                                     </View>

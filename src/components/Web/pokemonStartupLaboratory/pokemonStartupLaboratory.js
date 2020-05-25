@@ -92,7 +92,7 @@ class pokemonStartupLaboratory extends Component {
                     <View style={{ flex: 0.20 }}>
                         <View style={{ marginLeft: wp(5), marginRight: wp(5), alignSelf: 'center', flex: 0.30 }}>
                             <Text style={{
-                                fontFamily: 'Raleway-Thin',
+                                fontFamily: 'Raleway-Regular',
                                 fontSize: hp(3),
                                 textAlign: 'center',
                                 marginTop: hp(5),
