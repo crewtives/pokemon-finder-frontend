@@ -9,11 +9,12 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import * as Animatable from 'react-native-animatable';
+import { FontAwesome } from '@expo/vector-icons';
 
 import {
     fetchFilterUserPokemonData
 } from '../../../../actions/pokemonDataActions'
+import { pad } from '../../../../utils/url'
 
 import { connect } from 'react-redux';
 
@@ -45,7 +46,6 @@ class MyPokemons extends Component {
             }}>
                 <View style={{
                     flex: 0.50,
-                    flexDirection:'row'
                 }}>
                     <Text style={{
                         color: 'white',
@@ -60,26 +60,39 @@ class MyPokemons extends Component {
                 </View>
                 <View style={{
                     flex: 1,
-                    marginTop: hp(2)
-
+                    marginTop: hp(2),
                 }}>
-                    <TextInput
-                        placeholder={'find your pokemon'}
-                        placeholderTextColor='rgb(232, 163, 235)'
+                    <View style={{
+                        flexDirection: 'row',
+                    }}>
+                        <TextInput
+                            placeholder={'find your pokemon'}
+                            placeholderTextColor='rgb(232, 163, 235)'
+                            value={this.state.searchTerm}
+                            onChangeText={(searchTerm) => this.setState({ searchTerm })}
+                            style={{
+                                flex:0.90,
+                                backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                                fontFamily: 'Raleway-Thin',
+                                color: 'rgb(232, 163, 235)',
+                                height: hp(3.75),
+                                fontSize: hp(3.75),
+                                borderBottomColor: "rgb(232, 163, 235)",
+                                borderBottomWidth: 1,
+                                padding: hp(3),
+                            }}
+                        />
+                        <FontAwesome onPress={() => this.props.fetchFilterUserPokemonData(this.state.searchTerm)}
+                            iconStyle={{
+                                textAlignVertical: 'center'
+                            }}
+                            style={{
+                                marginHorizontal: wp(2),
+                                flex:0.10,
+                                marginTop: hp(1)
+                            }} name="search" size={24} color="#E4A0E8" />
+                    </View>
 
-                        style={{
-                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
-
-                            fontFamily: 'Raleway-Thin',
-                            underlineColor: 'transparent',
-                            color: 'rgb(232, 163, 235)',
-                            height: hp(3.75),
-                            fontSize: hp(3.75),
-                            borderBottomColor: "rgb(232, 163, 235)",
-                            borderBottomWidth: 1,
-                            padding: hp(3),
-                        }}
-                        onChangeText={searchTerm => this.props.fetchFilterUserPokemonData(searchTerm)} />
                 </View>
                 <View style={{
                     marginTop: hp(2)
@@ -89,8 +102,9 @@ class MyPokemons extends Component {
 
                         <FlatList
                             data={this.props.userPokemons}
+                            keyExtractor={item => 'list-pokemon-' + item.id}
                             renderItem={({ item }) => (
-                                
+
                                 <TouchableOpacity style={{
                                     borderBottomColor: "rgb(232, 163, 235)",
                                     borderBottomWidth: 1,
@@ -101,10 +115,14 @@ class MyPokemons extends Component {
                                 }}>
                                     <View style={{
                                         flex: .25,
-                                    }}>
-                                        {item.pokemonApi ? <Image source={{ uri: item.pokemonApi.sprites.front_default }} style={{ width: 96, height: 96, alignSelf: 'center' }} /> : null}
-                                        
+                                        justifyContent: 'center',
 
+                                    }}>
+                                        {item.pokemonApi ? <Image source={{
+                                            uri: 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + pad(item.pokemonApi.id, 3) + '.png'
+                                        }}
+                                            style={{ width: 72, height: 72, alignSelf: 'center' }}
+                                        /> : null}
                                     </View>
                                     <View style={{
                                         flex: .75
@@ -115,11 +133,10 @@ class MyPokemons extends Component {
                                             color: 'rgb(232, 163, 235)',
                                             height: hp(3.75),
                                             fontSize: hp(3.75),
-                                        }}>{item.pokemonApi? item.pokemonApi.name :null}</Text>
+                                        }}>{item.pokemonApi ? item.pokemonApi.name : null}</Text>
                                     </View>
                                 </TouchableOpacity>
                             )}
-                            keyExtractor={item => item.id}
                         />
                         : null}
                 </View>
@@ -153,7 +170,6 @@ const styles = StyleSheet.create({
     slide: {
         height: hp(75),
         width: wp(35),
-        resizeMode: 'cover',
         alignSelf: 'center',
     },
     text: {

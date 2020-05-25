@@ -1275,6 +1275,17 @@
     lodash "^4.5.0"
     prop-types "^15.6.1"
 
+"@unpourtous/react-native-search-list@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@unpourtous/react-native-search-list/-/react-native-search-list-2.1.2.tgz#83275085b0b10d89a6426b651e2bbed597794756"
+  integrity sha512-A8OmrZ4QwFXJWX5Ap61ybBC3ycaAO/GHBYCCgFWI93oep5DfHFW1jdBnUcUWgJtiuovZW6oGCjYWdBHgsZBe8g==
+  dependencies:
+    hoek "^5.0.3"
+    is-buffer "^1.1.6"
+    js-pinyin "^0.1.9"
+    md5 "^2.2.1"
+    prop-types "^15.6.0"
+
 abort-controller@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/abort-controller/-/abort-controller-3.0.0.tgz#eaf54d53b62bae4138e809ca225c8439a6efb392"
@@ -1787,6 +1798,11 @@ chardet@^0.4.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
   integrity sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=
 
+charenc@~0.0.1:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
+  integrity sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
+
 ci-info@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
@@ -2060,6 +2076,11 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
+
+crypt@~0.0.1:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/crypt/-/crypt-0.0.2.tgz#88d7ff7ec0dfb86f713dc87bbb42d044d3e6c41b"
+  integrity sha1-iNf/fsDfuG9xPch7u0LQRNPmxBs=
 
 css-in-js-utils@^2.0.0:
   version "2.0.1"
@@ -2354,6 +2375,15 @@ expo-linear-gradient@~8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-8.1.0.tgz#6933765cf1e76ef2928fd8495e779929699ac4c6"
   integrity sha512-AIy2pOXQRcgk2XE5IgAzd1S2jTFLutiDfveNm6m3fPAk00Rw4qFe98qzte1ayNrGYLJvQ2xq/Y7C0BmBP051mg==
+
+expo-linking@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/expo-linking/-/expo-linking-1.0.1.tgz#2c1b6e68f8d5f4e54add5670290a4eacb263199d"
+  integrity sha512-PZNT/1dJv7ZBAXxUFzcvQ5MN74E/yOPrk4UwnxvLoNOmo5fyXcP3BJJPQSIKFGLvVtzl71KJJxYtb+KsR4JvNQ==
+  dependencies:
+    expo-constants "~9.0.0"
+    qs "^6.5.0"
+    url-parse "^1.4.4"
 
 expo-location@~8.1.0:
   version "8.1.0"
@@ -2787,6 +2817,15 @@ hermes-engine@^0.2.1:
   resolved "https://registry.yarnpkg.com/hermes-engine/-/hermes-engine-0.2.1.tgz#25c0f1ff852512a92cb5c5cc47cf967e1e722ea2"
   integrity sha512-eNHUQHuadDMJARpaqvlCZoK/Nitpj6oywq3vQ3wCwEsww5morX34mW5PmKWQTO7aU0ck0hgulxR+EVDlXygGxQ==
 
+"highlight-words-core@git+https://github.com/fattahmuhyiddeen/highlight-words-core.git#master":
+  version "1.2.0"
+  resolved "git+https://github.com/fattahmuhyiddeen/highlight-words-core.git#10faeca1f058851f0e5be2ef31e5c697688e2cca"
+
+hoek@^5.0.3:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.4.tgz#0f7fa270a1cafeb364a4b2ddfaa33f864e4157da"
+  integrity sha512-Alr4ZQgoMlnere5FZJsIyfIjORBqZll5POhDsF4q64dPuJR6rNxXdDxtHSQq8OXRurhmx+PWYEE8bXRROY8h0w==
+
 hoist-non-react-statics@^2.3.1:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
@@ -2931,7 +2970,7 @@ is-arrayish@^0.3.1:
   resolved "https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.3.2.tgz#4574a2ae56f7ab206896fb431eaeed066fdf8f03"
   integrity sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==
 
-is-buffer@^1.1.5:
+is-buffer@^1.1.5, is-buffer@^1.1.6, is-buffer@~1.1.1:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
@@ -3165,6 +3204,11 @@ jetifier@^1.6.2:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.5.tgz#ea87324a4230bef20a9651178ecab978ee54a8cb"
   integrity sha512-T7yzBSu9PR+DqjYt+I0KVO1XTb1QhAfHnXV5Nd3xpbXM6Xg4e3vP60Q4qkNU8Fh6PHC2PivPUNN3rY7G2MxcDQ==
+
+js-pinyin@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/js-pinyin/-/js-pinyin-0.1.9.tgz#cdf19335645ddb20d4630df1058aac25d256adfd"
+  integrity sha1-zfGTNWRd2yDUYw3xBYqsJdJWrf0=
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -3413,6 +3457,15 @@ md5-file@^3.2.3:
   integrity sha512-3Tkp1piAHaworfcCgH0jKbTvj1jWWFgbvh2cXaNCgHwyTCBxxvD1Y04rmfpvdPm1P4oXMOpm6+2H7sr7v9v8Fw==
   dependencies:
     buffer-alloc "^1.1.0"
+
+md5@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/md5/-/md5-2.2.1.tgz#53ab38d5fe3c8891ba465329ea23fac0540126f9"
+  integrity sha1-U6s41f48iJG6RlMp6iP6wFQBJvk=
+  dependencies:
+    charenc "~0.0.1"
+    crypt "~0.0.1"
+    is-buffer "~1.1.1"
 
 mem@^1.1.0:
   version "1.1.0"
@@ -4269,7 +4322,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.7, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4347,10 +4400,24 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-animatable@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"
+  integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-app-intro-slider@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/react-native-app-intro-slider/-/react-native-app-intro-slider-4.0.2.tgz#890a7a4c1f190ef27a54801bb67f2bb089d891b5"
   integrity sha512-sZbBBGxAB/MUP/urNxC+W1/KGu/uwshI1nFuuIKSNlcnLW8E5jp+lmWQoRNdx8K26vEBd13cnWV/1T5XCYhSAQ==
+
+react-native-complete-flatlist@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-complete-flatlist/-/react-native-complete-flatlist-2.0.3.tgz#5ec55621ec4196febc39fe3d37d93f9d34cd189a"
+  integrity sha512-YJyOBYlgMwp42SB1At1JMpNkMOrKTX7iAZBFxclKYSVXS6l81Ug/TiD1grvN1cR7aMHlW9ULOmjgYSzya54oDw==
+  dependencies:
+    react-native-highlight-words "git+https://github.com/fattahmuhyiddeen/react-native-highlight-words.git#master"
 
 react-native-gesture-handler@^1.6.1:
   version "1.6.1"
@@ -4361,6 +4428,13 @@ react-native-gesture-handler@^1.6.1:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+"react-native-highlight-words@git+https://github.com/fattahmuhyiddeen/react-native-highlight-words.git#master":
+  version "1.0.1"
+  resolved "git+https://github.com/fattahmuhyiddeen/react-native-highlight-words.git#0d105c534b8138eafee587cc1785aca89c7b175a"
+  dependencies:
+    highlight-words-core "git+https://github.com/fattahmuhyiddeen/highlight-words-core.git#master"
+    prop-types "^15.5.7"
 
 react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
@@ -4388,6 +4462,11 @@ react-native-screens@^2.2.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.7.0.tgz#2d3cf3c39a665e9ca1c774264fccdb90e7944047"
   integrity sha512-n/23IBOkrTKCfuUd6tFeRkn3lB2QZ3cmvoubRscR0JU/Zl4/ZyKmwnFmUv1/Fr+2GH/H8UTX59kEKDYYg3dMgA==
+
+react-native-searchable-list@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-searchable-list/-/react-native-searchable-list-1.1.3.tgz#d56884352f040cde058b251cc37c104ca532c604"
+  integrity sha512-dYuc2hCaEvu3CQcIJgEsJpHAuu4VLMkRJDGdFOlS68QQrO1/0IjrjIewOD3QDuAW8XmTcuEyCgE3r2+GidJ3oQ==
 
 react-native-view-shot@3.1.2:
   version "3.1.2"

@@ -4,11 +4,12 @@ import {
     StyleSheet,
     StatusBar,
     View,
-    Text
+    Text,
 } from 'react-native';
+import * as Linking from 'expo-linking';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import * as Animatable from 'react-native-animatable';
-
+import { FontAwesome } from '@expo/vector-icons';
 import NavbarHome from '../commons/navbar/NavbarHome'
 import MyPokemons from '../commons/MyPokemons/MyPokemons'
 
@@ -48,7 +49,7 @@ class Home extends Component {
     render() {
 
         return (
-            <ImageBackground ref={this.handleMainContainer} blurRadius={10} source={{ uri: 'https://i2.wp.com/www.bitme.gg/wp-content/uploads/2019/12/Pueblo-Paleta-existe-y-Google-Maps-nos-dice-en-donde-encontrarlo.jpg?w=1280&ssl=1' }} style={{ backgroundColor: '#000022', flex: 1 }}>
+            <ImageBackground ref={this.handleMainContainer} blurRadius={10} source={{ uri: 'https://i.pinimg.com/564x/d2/ea/d9/d2ead9c567843220250332203761c0d4.jpg' }} style={{ backgroundColor: '#000022', flex: 1 }}>
                 <StatusBar backgroundColor='transparent' translucent barStyle='dark-content' />
                 <NavbarHome />
                 <ScrollView>
@@ -74,7 +75,7 @@ class Home extends Component {
                                 flexDirection: 'column'
                             }}>
                                 <View style={{
-                                    flex: 1
+                                    flex: 0.10
                                 }}>
                                     <Text style={{
                                         color: 'white',
@@ -82,19 +83,50 @@ class Home extends Component {
                                         textAlign: 'center',
                                         padding: 5
                                     }}>
-                                        Map adventure coming soon...
+                                        quests
                                     </Text>
-                                    {this.props.userPokemons.length === 0 ?
-                                        <Animatable.Text animation='shake' duration={300} onPress={() => this.toLaboratory()} style={{
-                                            color: 'rgb(232, 163, 235)',
-                                            fontFamily: 'Raleway-Regular',
-                                            fontSize: hp(2.5),
-                                            textAlign: 'center',
-                                            textAlignVertical: 'center'
-                                        }}> visit the laboratory
-                                        </Animatable.Text> : null}
+
                                 </View>
-                               
+                                <View style={{ flex: 0.90 }}>
+                                    <Animatable.View animation='bounceInUp' duration={500} delay={2500}>
+                                        {this.props.userPokemons.length === 0 && this.props.user.lab_stage === 0 ?
+                                            <ImageBackground imageStyle={{ borderRadius: 10 }} style={{ height: hp(40), width: '100%' }} source={{ uri: 'https://i.pinimg.com/564x/fa/9a/b1/fa9ab12405644b30913d7c157512a0d9.jpg' }}>
+                                                <View style={{
+                                                    position: 'absolute',
+                                                    backgroundColor: 'rgba(0, 0, 32, 0.8)',
+                                                    bottom: 0,
+                                                    left: 0
+                                                }}>
+                                                    <Text onPress={() => this.toLaboratory()} style={{
+                                                        color: 'rgb(232, 163, 235)',
+                                                        fontFamily: 'Raleway-Bold',
+                                                        fontSize: hp(2.8),
+                                                        textAlign: 'center',
+                                                        textAlignVertical: 'center',
+                                                        paddingTop: 10
+                                                    }}> visit the laboratory
+                                                </Text>
+                                                    <Text onPress={() => this.toLaboratory()} style={{
+                                                        color: 'rgb(232, 163, 235)',
+                                                        fontFamily: 'Raleway-Regular',
+                                                        fontSize: hp(2.3),
+                                                        padding: 20
+                                                    }}>hey {this.props.user.name}! where have you been?!... no matter, the professor Boom is waiting for you... maybe you choose a first pokemon! run before they're all over.
+                                                </Text>
+                                                </View>
+                                            </ImageBackground>
+                                            : <Text style={{
+                                                color: 'rgb(232, 163, 235)',
+                                                fontFamily: 'Raleway-Bold',
+                                                fontSize: hp(2.8),
+                                                textAlign: 'center',
+                                                textAlignVertical: 'center',
+                                                paddingTop: 10
+                                            }}> nothing new around here
+                                                </Text>}
+                                    </Animatable.View>
+                                </View>
+
                             </View>
                         </Animatable.View>
                         <View style={{
@@ -153,20 +185,26 @@ class Home extends Component {
                             }}
                             >
                                 <View style={{
-                                    margin: 10,
-                                    justifyContent: 'center',
-                                    flexDirection: 'column'
+                                    margin: 20,
                                 }}>
+                                    <Text style={{
+                                        color: 'rgb(232, 163, 235)',
+                                        fontFamily: 'Raleway-Bold',
+                                        fontSize: hp(2.8),
+                                        textAlign: 'center',
+                                        textAlignVertical: 'center',
+                                        marginBottom: hp(4),
+                                        paddingTop: 10
+                                    }}> follow me for more delicious adventures
+                                                </Text>
                                     <View style={{
+                                        justifyContent: 'center',
+                                        flexDirection: 'row'
                                     }}>
-                                        <Text style={{
-                                            color: 'white',
-                                            fontFamily: 'Raleway-Bold',
-                                            textAlign: 'center',
-                                            padding: 5
-                                        }}>
-                                            News coming soon...
-                                    </Text>
+                                        <FontAwesome style={{ marginHorizontal: wp(2) }} onPress={() => Linking.openURL('https://www.instagram.com/migue.san.martin', '_blank')} name="instagram" size={24} color="#E4A0E8" />
+                                        <FontAwesome style={{ marginHorizontal: wp(2) }} onPress={() => Linking.openURL('https://twitter.com/crewtives_dev', '_blank')} name="twitter" size={24} color="#E4A0E8" />
+                                        <FontAwesome style={{ marginHorizontal: wp(2) }} onPress={() => Linking.openURL('https://github.com/crewtives', '_blank')} name="github" size={24} color="#E4A0E8" />
+                                        <FontAwesome style={{ marginHorizontal: wp(2) }} onPress={() => Linking.openURL('hhttps://www.linkedin.com/in/miguel-san-martin-5296971a4', '_blank')} name="linkedin" size={24} color="#E4A0E8" />
                                     </View>
                                 </View>
                             </Animatable.View>
@@ -204,7 +242,6 @@ const styles = StyleSheet.create({
     slide: {
         height: hp(75),
         width: wp(35),
-        resizeMode: 'cover',
         alignSelf: 'center',
     },
     text: {

@@ -34,6 +34,7 @@ function pokemonDataReducer(state = initialState, action) {
             }
         case CLEAR_POKEMON_DATA:
             return {
+                ...state,
                 pokemon: null,
                 isFeching: false,
                 error: false

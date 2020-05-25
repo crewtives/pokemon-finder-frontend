@@ -17,6 +17,8 @@ import { getPokemonStartup, fetchPokemonStartupData } from '../../../actions/pok
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { FontAwesome } from '@expo/vector-icons';
 
+import { pad } from '../../../utils/url'
+
 class pokemonStartupLaboratory extends Component {
 
     handleMainContainer = ref => this.mainContainer = ref;
@@ -138,12 +140,14 @@ class pokemonStartupLaboratory extends Component {
                                 <View style={{
                                     flex: 0.28
                                 }}>
-                                    <Image source={{ uri: this.props.pokemon[0].sprites.front_default, }}
-                                        style={{
-                                            width: 256,
-                                            height: 256,
-                                            flex: 1
-                                        }} />
+                                    {this.props.pokemon ?
+                                        <Image source={{ uri: 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + pad(this.props.pokemon[0].id, 3) + '.png' }}
+                                            style={{
+                                                width: 128,
+                                                height: 128,
+                                                resizeMode:'stretch'
+                                            }} /> : <ActivityIndicator style={{ padding: 50 }} size="large" color="rgb(232, 163, 235)" />
+                                    }
                                 </View>
                                 <View style={{
                                     flex: 0.60,
@@ -191,12 +195,13 @@ class pokemonStartupLaboratory extends Component {
                                                 <Animatable.View
                                                     style={{
                                                         flex: 1,
-                                                        marginHorizontal: wp(2)
+                                                        marginHorizontal: wp(2),
+                                                        marginTop: hp(5)
                                                     }}
                                                     animation="bounceInDown"
                                                     delay={250}>
                                                     <View style={{ flex: 0.50 }}>
-                                                        <Image source={{ uri: item.sprites.front_default }} style={{ width: 156, height: 156 }} />
+                                                        <Image source={{ uri: 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + pad(item.id, 3) + '.png' }} style={{ width: 96, height: 96 }} />
 
                                                     </View>
                                                     <View style={{ flex: 0.50, margin: 10 }}>
@@ -294,7 +299,6 @@ const styles = StyleSheet.create({
     slide: {
         height: hp(75),
         width: wp(35),
-        resizeMode: 'cover',
         alignSelf: 'center',
     },
     text: {

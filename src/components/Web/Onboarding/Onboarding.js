@@ -186,7 +186,6 @@ const styles = StyleSheet.create({
     slide: {
         height: hp(75),
         width: wp(35),
-        resizeMode: 'cover',
         alignSelf: 'center',
     },
     text: {
